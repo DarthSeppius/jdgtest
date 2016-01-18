@@ -1,0 +1,28 @@
+package org.jboss.as.quickstarts.datagrid.prova
+// list any import classes here.
+import java.util.HashMap;
+import java.util.Map;
+import org.infinispan.Cache;
+import org.jboss.as.quickstarts.datagrid.prova.controller.BusinessRuleController;
+
+// declare any global variables here
+dialect "java"
+rule "mapOnCodeRule"
+   
+   when
+	c : Cache()
+    
+   then
+   BusinessRuleController.mapOnCode(c, "0125");
+  
+end
+
+rule "reduceOnCodeRule"
+   
+   when
+	c : Cache()
+	
+   then
+   BusinessRuleController.reduceOnCode(c, "0300");
+  
+end
